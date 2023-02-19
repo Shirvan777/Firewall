@@ -1,0 +1,312 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <title>NSA Panel</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.freelogodesign.org/files/4835a2b3c7814aeb9d0527ea5c23e472/thumb/logo_200x200.png?v=0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <header><a href="/" style="text-decoration: none;"><div style="display:inline-flex;align-items: center;font-family: 'Papyrus', fantasy;color: white;padding: 20px;">
+        <img src="https://cdn.freelogodesign.org/files/4835a2b3c7814aeb9d0527ea5c23e472/thumb/logo_200x200.png?v=0" style="width:100px ;border-radius: 10px;margin-right: 20px;">
+        <h1 style="font-size: 20px;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-weight: 300;">NS App</h1></div></a>{% if user.is_authenticated %}
+<h1 class="welcome">Welcome, <p>{{user.username}}</p> to Network Security Management System</h1>
+
+{%else%}
+<h1 class="welcome">You must login for using app</h1>
+{% endif %}
+
+
+<nav class="nav">
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                {% if user.is_authenticated %}
+                <li class="btn btn-primary btn-block btn-large"><a href="{% url 'logout' %}">Log Out</a></li>
+                {%else%}
+                <li class="btn btn-primary btn-block btn-large"><a href="login" >Log in</a></li>
+                {%endif%}
+            </ul>
+        </div>
+</header>
+<style>
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+ 
+body{
+    background: #092756;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 62.5%;
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        line-height: 1.42em;
+        color:#A7A1AE;
+        padding: 30px;
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+}
+p{
+  display: inline-block;
+  margin: 0;
+  color: black;
+}
+.welcome{
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.42em;
+  color: #efeef1;
+  text-align: center;
+  width: 280em;
+  margin-top: 55px;
+    
+}
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+    
+    /*-- Inspiration taken from abdo steif -->
+    /* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
+    
+    /* Navbar section */
+nav{
+    display: flex;
+
+margin-bottom: 18px;
+}   
+header{
+  display: inline-flex;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid ;
+    padding: 0;
+    margin-bottom: 10px;
+    min-width: 900px;
+}
+    .nav {
+      width: 100%;
+      justify-content: flex-end;
+      height: 65px;
+      line-height: 65px;
+      text-align: center;
+      padding-top: 35px;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    .foot{
+        display: flex;
+    }
+
+    
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+    .btn { display: inline-block;font-family: 'Open Sans', sans-serif; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
+    .btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+    .btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+    .btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
+    .btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
+    .btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+    .btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
+    .btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+    .btn-block { width: 200px; display:block; }
+
+    .nav div.main_list {
+        height: 65px;
+        float: right;
+        padding-right: 0;
+    }
+
+    
+    .nav div.main_list ul {
+        width: 100%;
+        height: 65px;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        padding-left: 0;
+    }
+    
+    .nav div.main_list ul li {
+        width: 120px;
+        padding: 0;
+    }
+    
+    .nav div.main_list ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        display: block;
+        padding: 18px;
+    }
+.head-buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    min-width: 900px;
+}
+
+    h1{
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-weight: 300;
+        margin-bottom: 15px;
+        
+      }
+      table{
+        width:100%;
+        border: 1px solid ;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+      }
+      .tbl-header{
+        background-color: rgba(255,255,255,0.3);
+       }
+      .tbl-content{
+        height:300px;
+        overflow-x:auto;
+        margin-top: 0px;
+        border: 1px solid rgba(255,255,255,0.3);
+      }
+      th{
+        padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.1);
+      }
+      td{
+        padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 15px;
+    color: #fff;
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    border-top: solid 1px rgba(255,255,255,0.1);
+    border-left:solid 1px rgba(255,255,255,0.1); ;
+      }
+.container{
+  border-collapse: separate;
+  max-width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">   
+</head>
+
+<body>
+
+</nav>{% if user.is_authenticated %}
+<main>
+    <div class="head-buttons">
+            <form method="post" name="start">{% csrf_token %}<button name="start" class="btn btn-primary btn-block btn-large"><i class="fa fa-play" style="color: rgb(58, 97, 224);"></i> Start</button></form>
+            <form method="post" name="stop">{% csrf_token %}<button name="stop" class="btn btn-primary btn-block btn-large"><i class="fa fa-stop" style="color: red;"></i> Stop</button></form>
+            <form method="post" name="block_p">{% csrf_token %}<button name="block_p" class="btn btn-primary btn-block btn-large"><i class="fa fa-shield" style="color:rgb(197, 195, 195) ;"></i> Block Ping</button></form>
+            <form method="post" name="allow_a">{% csrf_token %}<button name="allow_a" class="btn btn-primary btn-block btn-large"><i class="fa fa-check" style="color:rgb(11, 255, 11) ;"></i> Allow All</button></form>
+            <form method="post" name="block_a">{% csrf_token %}<button name="block_a" class="btn btn-primary btn-block btn-large"><i class="fa fa-ban" style="color:rgb(255, 0, 0) ;"></i> Block All</button></form>
+    </div>
+    <!-- LIST OF ELEMENTS -->
+        <table class="container">
+            <thead>
+                <tr>
+                    <th><h1>Local IP</h1></th>
+                    <th><h1>Remote IP</h1></th>
+                    <th><h1>Local Port</h1></th>
+                    <th><h1>Remote Port</h1></th>
+                    <th><h1>Action</h1></th>
+                    <th><h1>Protocol</h1></th>
+                    <th><h1>Direction</h1></th>
+                    <th><h1 style="color: red;">Delete</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rule in rules %}  
+                <tr>  
+                    <td>{{ rule.source_ip }}</td>  
+                    <td>{{ rule.dest_ip }}</td>  
+                    <td>{{ rule.source_port }}</td>  
+                    <td>{{ rule.dest_port }}</td> 
+                    <td>{{ rule.ACTION }}</td> 
+                    <td>{{ rule.PROTOCOL_TYPES }}</td> 
+                    <td>{{ rule.DIR }}</td> 
+                    <td>  
+                        <a class="btn btn-primary btn-block btn-large" style="width: 50px;" href="/delete/{{ rule.id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>  
+                    </td>  
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+    <!-- ADD RULES FORM-->
+    <div class="modal fade" style="--bs-modal-width: 400px;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" style="background-color: #a5c7fe;">
+            <div class="modal-header">
+                <h3 style="color:rgb(58, 97, 224);">Add Rules</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" style="color:rgb(58, 97, 224); font-size: 20px;">
+                
+                <form method="POST" class="post-form" name = "add" action="/home">
+                    {% csrf_token %}
+                    <legend style="color: rgb(47, 47, 255);">IP Address (Ex: 192.168.1.1) </legend>
+                    <label for="source" style="color: rgb(0, 0, 0);">Local</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ form.source_ip }}  <br>
+
+                    <label for="Destination" style="color: rgb(0, 0, 0);">Remote</label>
+                        {{ form.dest_ip }}  <br><br>
+
+                    <legend style="color: rgb(47, 47, 255);">Port (Ex: 80)</legend>
+                    <label for="source" style="color: rgb(0, 0, 0);">Local</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ form.source_port }}  <br>
+                        
+                    <label for="Destination" style="color: rgb(0, 0, 0);">Remote</label>&nbsp;&nbsp;
+                        {{ form.dest_port }}  <p style="margin-left: 90px; color: rgb(255, 0, 0);">ONLY USE TCP or UDP</p><br><br>
+                    <label for="action" style="color: rgb(47, 47, 255);">Action</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ form.ACTION }}  <br><br>
+                    <label for="protocol"style="color: rgb(47, 47, 255);">Protocol</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ form.PROTOCOL_TYPES }} <br><br>
+
+                    <label for="Direction" style="color: rgb(47, 47, 255);">Direction</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{form.DIR}}
+            </div>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" name="save">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+                </form>
+                <div class="add">
+                    <button name="add_rules" type="button" class="btn btn-primary btn-block btn-large" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus"></i> Add Rules</button>
+                </div> 
+</main>
+<footer>
+    <!-- JS NOTIFICATION -->
+        {% if messages %}
+            {% for message in messages %}
+            <script>
+                alertify.set('notifier','position', 'bottom-center');
+                alertify.error('{{message}}'); 
+                </script>
+            {% endfor %}
+        {% endif %}
+</footer>
+{%endif%}
